@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Unicom - LLM Instruction-Prompting Intern | Haiyi Xing</title>
+  <meta name="description" content="Detailed overview of Haiyi Xing's work at China Unicom on Large Language Model training, data labeling, and instructional prompting research.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --border-color: #e5e7eb;
+      --accent-color: #3b82f6;
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: gap 0.3s ease;
+    }
+
+    .back-link:hover {
+      gap: 0.75rem;
+    }
+
+    .nav-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4rem 2rem;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .company-logo {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .role {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+
+    .hero .date {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: var(--primary-color);
+    }
+
+    .card {
+      background: var(--bg-primary);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h3 i {
+      font-size: 1rem;
+      color: var(--primary-color);
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .card li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box h4 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .highlight-box p {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: var(--bg-primary);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-top: 3px solid var(--primary-color);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Research Areas Grid */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .research-card {
+      background: var(--bg-primary);
+      padding: 1.75rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .research-card-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .research-card-icon i {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .research-card h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .research-card p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    /* Technologies */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      background: #eff6ff;
+      color: var(--primary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-tag i {
+      font-size: 1rem;
+    }
+
+    /* Metrics Table */
+    .metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: var(--bg-primary);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .metrics-table th,
+    .metrics-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .metrics-table th {
+      background: var(--bg-secondary);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .metrics-table td {
+      color: var(--text-secondary);
+    }
+
+    .metrics-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .metric-positive {
+      color: var(--success-color);
+      font-weight: 600;
+    }
+
+    .metric-negative {
+      color: #ef4444;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .role {
+        font-size: 1.25rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+      <div class="nav-title">China Unicom Internship</div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="company-logo">
+        <i class="fas fa-building"></i> China Unicom (中国联通)
+      </div>
+      <h1>Yuanjing LLM Instruction-Prompting Intern</h1>
+      <p class="role">Large Language Model Training & Research</p>
+      <div class="date">
+        <i class="far fa-calendar"></i>
+        July 2024 – September 2024
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Overview -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-info-circle"></i>
+        Project Overview
+      </h2>
+      <div class="card">
+        <p>
+          During my internship at China Unicom's Yuanjing AI Lab, I contributed to the development and optimization of large language models specifically designed for telecommunications domain applications. My work spanned across three critical areas: instructional prompt engineering, large-scale data curation and labeling, and comprehensive model evaluation research.
+        </p>
+        <p>
+          The primary goal was to enhance the model's ability to accurately respond to telecom-specific queries while minimizing hallucinations and improving overall answer relevance. This involved systematic experimentation with prompt engineering techniques, rigorous data quality control, and extensive benchmark testing across multiple model architectures.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-trophy"></i>
+        Key Achievements
+      </h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">+17%</div>
+          <div class="stat-label">Answer Relevance Improvement</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">-12%</div>
+          <div class="stat-label">Reduction in Hallucinations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">2.3M</div>
+          <div class="stat-label">QA Pairs Curated & Labeled</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">-15%</div>
+          <div class="stat-label">Perplexity Reduction (4.8→4.1)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-flask"></i>
+        Research Areas
+      </h2>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-card-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h4>Instructional Prompt Engineering</h4>
+          <p>
+            Conducted systematic A/B testing of over 150 prompt variations to optimize model response quality. Developed domain-specific prompting strategies that significantly improved answer relevance and reduced hallucination rates through careful instruction design and context management.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h4>Large-Scale Data Curation</h4>
+          <p>
+            Led the curation and labeling efforts for approximately 2.3 million telecom-specific question-answer pairs. Implemented rigorous quality control processes to ensure data consistency, relevance, and accuracy, directly contributing to a 15% reduction in model perplexity.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>Model Evaluation & Benchmarking</h4>
+          <p>
+            Conducted comprehensive benchmark testing across multiple model architectures including Qwen2-Math series, Meta-Llama models, and various instruction-tuned variants. Analyzed performance across diverse tasks including mathematical reasoning (GSM8K, MATH), competition-level problems (AIME24, AMC23), and domain-specific benchmarks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Work -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-tasks"></i>
+        Detailed Contributions
+      </h2>
+
+      <div class="card">
+        <h3><i class="fas fa-robot"></i> LLM Pre-training Setup & Data Pipeline</h3>
+        <p>
+          Participated in the pre-training setup and data pipeline development for domain-specific language models, with a focus on the telecom industry. Key responsibilities included:
+        </p>
+        <ul>
+          <li><strong>Pre-training Data Preparation:</strong> Processed and cleaned large-scale telecommunications corpora, ensuring data quality and removing potential contamination sources that could affect benchmark validity.</li>
+          <li><strong>Instruction-Following Dataset Design:</strong> Designed and implemented instruction-following datasets specifically tailored for telecom customer service scenarios, technical support queries, and network troubleshooting.</li>
+          <li><strong>Training Data Quality Control:</strong> Established rigorous data validation pipelines to ensure consistency and accuracy across training datasets, directly contributing to improved model performance after retraining with curated data (15% perplexity reduction from 4.8 to 4.1).</li>
+          <li><strong>Evaluation Protocol Development:</strong> Developed evaluation protocols to assess model performance across various dimensions including factual accuracy, response coherence, and domain expertise.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-tags"></i> Data Labeling & Quality Control</h3>
+        <p>
+          Managed large-scale data labeling operations for training and evaluation datasets:
+        </p>
+        <ul>
+          <li><strong>Annotation Framework Design:</strong> Developed comprehensive labeling guidelines for telecom-specific QA pairs, ensuring consistency across multiple annotators and data sources.</li>
+          <li><strong>Quality Metrics:</strong> Established inter-annotator agreement protocols and quality benchmarks, maintaining high standards across 2.3 million labeled examples.</li>
+          <li><strong>Domain Expertise Integration:</strong> Collaborated with telecommunications subject matter experts to validate technical accuracy and ensure proper coverage of industry-specific terminology and concepts.</li>
+          <li><strong>Continuous Improvement:</strong> Implemented feedback loops to iteratively refine labeling criteria based on model performance and real-world usage patterns.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-vial"></i> Instructional Prompting Research</h3>
+        <p>
+          Conducted extensive research on prompt engineering techniques to maximize model effectiveness:
+        </p>
+        <ul>
+          <li><strong>Systematic Experimentation:</strong> Designed and executed A/B tests across 150+ prompt variations, methodically analyzing the impact of different instruction formats, context lengths, and framing strategies.</li>
+          <li><strong>Prompt Templates:</strong> Developed reusable prompt templates optimized for various task categories including factual retrieval, reasoning-intensive queries, and multi-step problem solving.</li>
+          <li><strong>Hallucination Mitigation:</strong> Identified and implemented prompting strategies that reduced model hallucinations by 12%, including explicit constraints, verification prompts, and uncertainty expression.</li>
+          <li><strong>Performance Analysis:</strong> Established metrics and evaluation frameworks to quantitatively assess prompt effectiveness, leading to measurable improvements in answer relevance (+17%).</li>
+        </ul>
+
+        <div class="highlight-box">
+          <h4><i class="fas fa-lightbulb"></i> Key Insight</h4>
+          <p>
+            Through systematic prompt engineering, I discovered that carefully structured instructions with explicit task decomposition and constraint specification significantly improved model reliability in telecom-specific scenarios, reducing off-topic responses and improving technical accuracy.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-chart-bar"></i> Model Benchmarking & Analysis</h3>
+        <p>
+          Conducted comprehensive evaluation research comparing model performance across industry-standard benchmarks:
+        </p>
+        <ul>
+          <li><strong>Multi-Model Comparison:</strong> Evaluated performance of Qwen2-Math (1.5B, 7B, 72B variants), Meta-Llama models, DeepSeek-Math, and other instruction-tuned architectures across diverse benchmarks.</li>
+          <li><strong>Task Diversity:</strong> Assessed model capabilities across mathematical reasoning (GSM8K, MATH, Minerva Math), competition-level problems (AIME24, AMC23), multilingual tasks (GaoKao, CMATH), and domain-specific challenges.</li>
+          <li><strong>Data Contamination Analysis:</strong> Implemented rigorous testing protocols to ensure benchmark validity, including 13-gram duplicate detection and training data decontamination procedures to maintain evaluation integrity.</li>
+          <li><strong>Scaling Insights:</strong> Analyzed how model size affects performance across different task categories, providing actionable insights for model selection and deployment strategies in production environments.</li>
+        </ul>
+
+        <div class="highlight-box">
+          <h4><i class="fas fa-microscope"></i> Research Contribution</h4>
+          <p>
+            My benchmark analysis revealed critical insights about model performance trade-offs, particularly highlighting the superior performance of Qwen2-Math-72B-Instruct on complex reasoning tasks while identifying optimal model sizes for different deployment scenarios considering computational constraints and accuracy requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Impact -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-rocket"></i>
+        Technical Impact & Deliverables
+      </h2>
+      
+      <div class="card">
+        <h3><i class="fas fa-tools"></i> Evaluation Harness Development</h3>
+        <p>
+          Built a comprehensive Python/LangChain evaluation harness that was adopted across three model operations teams:
+        </p>
+        <ul>
+          <li><strong>Automated Testing Framework:</strong> Developed modular evaluation pipelines supporting multiple model APIs, batch processing, and parallel execution for efficient large-scale testing.</li>
+          <li><strong>Metrics Dashboard:</strong> Implemented real-time monitoring and visualization of key performance indicators including perplexity, BLEU scores, answer relevance, and hallucination rates.</li>
+          <li><strong>Integration & Adoption:</strong> Successfully integrated the harness into production workflows across multiple teams, standardizing evaluation protocols and enabling consistent cross-model comparisons.</li>
+          <li><strong>Documentation & Training:</strong> Created comprehensive documentation and conducted knowledge-sharing sessions, facilitating team-wide adoption and continuous improvement of evaluation methodologies.</li>
+        </ul>
+
+        <div class="tech-tags">
+          <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fas fa-link"></i> LangChain</span>
+          <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+          <span class="tech-tag"><i class="fas fa-chart-line"></i> Evaluation Metrics</span>
+          <span class="tech-tag"><i class="fas fa-brain"></i> OpenCompass</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-check-circle"></i> Performance Improvements</h3>
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Before</th>
+              <th>After</th>
+              <th>Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Answer Relevance Score</td>
+              <td>72.3%</td>
+              <td>89.6%</td>
+              <td class="metric-positive">+17.3%</td>
+            </tr>
+            <tr>
+              <td>Hallucination Rate</td>
+              <td>18.7%</td>
+              <td>6.9%</td>
+              <td class="metric-negative">-11.8%</td>
+            </tr>
+            <tr>
+              <td>Model Perplexity</td>
+              <td>4.8</td>
+              <td>4.1</td>
+              <td class="metric-negative">-14.6%</td>
+            </tr>
+            <tr>
+              <td>User Satisfaction (Internal)</td>
+              <td>78%</td>
+              <td>91%</td>
+              <td class="metric-positive">+13%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Learning & Skills -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-graduation-cap"></i>
+        Skills Developed
+      </h2>
+      
+      <div class="card">
+        <p>
+          This internship provided invaluable hands-on experience in production-scale LLM development and deployment:
+        </p>
+        <ul>
+          <li><strong>LLM Engineering:</strong> Gained deep expertise in prompt engineering, instruction tuning, and model optimization techniques for domain-specific applications.</li>
+          <li><strong>Data Engineering:</strong> Developed proficiency in large-scale data curation, quality control, and annotation management for ML training pipelines.</li>
+          <li><strong>Evaluation Methodologies:</strong> Mastered benchmark design, contamination detection, and comprehensive model evaluation across diverse task categories.</li>
+          <li><strong>Production ML:</strong> Learned best practices for deploying and monitoring LLMs in production environments, including A/B testing, performance monitoring, and iterative improvement.</li>
+          <li><strong>Cross-functional Collaboration:</strong> Enhanced ability to work with diverse teams including ML engineers, data scientists, domain experts, and product managers.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Haiyi Xing. <a href="index.html">Return to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

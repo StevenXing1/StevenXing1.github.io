@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lenovo - Software Development Engineer Intern | Haiyi Xing</title>
+  <meta name="description" content="Detailed overview of Haiyi Xing's work at Lenovo on AI Customer Service platform development, LLM fine-tuning, and intent recognition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --border-color: #e5e7eb;
+      --accent-color: #3b82f6;
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+      --error-color: #ef4444;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: gap 0.3s ease;
+    }
+
+    .back-link:hover {
+      gap: 0.75rem;
+    }
+
+    .nav-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #e30613 0%, #a3040d 100%);
+      color: white;
+      padding: 4rem 2rem;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .company-logo {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .role {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+
+    .hero .date {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: var(--primary-color);
+    }
+
+    .card {
+      background: var(--bg-primary);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h3 i {
+      font-size: 1rem;
+      color: var(--primary-color);
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .card li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box h4 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .highlight-box p {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .challenge-box {
+      background: linear-gradient(135deg, #fef3c715 0%, #fcd34d15 100%);
+      border-left: 4px solid var(--warning-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .challenge-box h4 {
+      color: var(--warning-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .challenge-box p {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .solution-box {
+      background: linear-gradient(135deg, #d1fae515 0%, #6ee7b715 100%);
+      border-left: 4px solid var(--success-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .solution-box h4 {
+      color: var(--success-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .solution-box p {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: var(--bg-primary);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-top: 3px solid var(--primary-color);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--success-color));
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: -2.375rem;
+      top: 0.5rem;
+      width: 16px;
+      height: 16px;
+      background: var(--primary-color);
+      border: 3px solid var(--bg-secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--bg-primary);
+    }
+
+    .timeline-step h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-step p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Tech Tags */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      background: #eff6ff;
+      color: var(--primary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-tag i {
+      font-size: 1rem;
+    }
+
+    /* Architecture Diagram */
+    .architecture {
+      background: var(--bg-primary);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+
+    .architecture h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .arch-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .arch-arrow {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .role {
+        font-size: 1.25rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .arch-flow {
+        flex-direction: column;
+      }
+
+      .arch-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+      <div class="nav-title">Lenovo Internship</div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="company-logo">
+        <i class="fas fa-building"></i> Lenovo (联想)
+      </div>
+      <h1>Software Development Engineer Intern</h1>
+      <p class="role">AI Customer Service Platform Development</p>
+      <div class="date">
+        <i class="far fa-calendar"></i>
+        August 2023 – October 2023
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Overview -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-info-circle"></i>
+        Project Overview
+      </h2>
+      <div class="card">
+        <p>
+          During my internship at Lenovo, I developed an AI-powered customer service platform designed to automatically answer customer questions about Lenovo devices. The project involved building an end-to-end solution combining large language model fine-tuning, intent recognition, and intelligent query routing to create a robust customer support system.
+        </p>
+        <p>
+          This was a demonstration project that showcased the technical feasibility and established the foundation for future large-scale deployment. The system was designed to handle approximately 80% of common device-related issues while maintaining natural conversation capabilities.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-trophy"></i>
+        Key Achievements
+      </h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">92%</div>
+          <div class="stat-label">Intent Recognition F1 Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">~80%</div>
+          <div class="stat-label">Device Issues Coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">78% → 92%</div>
+          <div class="stat-label">Top-1 F1 Improvement</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">2 Models</div>
+          <div class="stat-label">Fine-tuned (ChatGLM, Llama-2)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Journey -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-route"></i>
+        Development Journey
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <h4>Phase 1: Initial RAG Approach with LangChain</h4>
+          <p>
+            Started by implementing a Retrieval-Augmented Generation (RAG) system using LangChain with an external knowledge base containing Lenovo device documentation and troubleshooting guides. However, this approach faced significant accuracy challenges in understanding nuanced customer queries and providing precise, device-specific answers.
+          </p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>Phase 2: Model Fine-tuning with LoRA & P-Tuning v2</h4>
+          <p>
+            Pivoted to fine-tuning approach using actual Lenovo customer service QA conversations. Implemented LoRA (Low-Rank Adaptation) and P-Tuning v2 techniques on ChatGLM 7B and Llama-2 7B models, creating domain-specific versions optimized for Lenovo device support scenarios.
+          </p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>Phase 3: Addressing Catastrophic Forgetting</h4>
+          <p>
+            Discovered severe catastrophic forgetting issue where fine-tuned models lost their general conversational abilities and couldn't handle greetings or daily communication. Attempted parameter tuning to find optimal trade-offs but couldn't achieve satisfactory balance between domain expertise and general capabilities.
+          </p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>Phase 4: Intent Recognition Solution</h4>
+          <p>
+            Developed a novel two-stage architecture with an upstream intent recognition model (Logistic Regression + Gradient Boosting) to classify user queries into categories: greetings, daily conversation, or professional device questions. This allowed routing simple queries to the base model while directing technical questions to the fine-tuned specialist model.
+          </p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>Phase 5: Presentation & Documentation</h4>
+          <p>
+            Presented the complete solution to Lenovo's technology group, demonstrating the architecture, technical decisions, and performance improvements. Created comprehensive documentation for future development teams to scale the demo into production-ready systems with larger models.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Deep Dive -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-code"></i>
+        Technical Implementation
+      </h2>
+
+      <div class="card">
+        <h3><i class="fas fa-search"></i> Phase 1: LangChain RAG System</h3>
+        <p>
+          The initial approach leveraged LangChain's retrieval capabilities to create a knowledge-augmented response system:
+        </p>
+        <ul>
+          <li><strong>Knowledge Base Construction:</strong> Compiled extensive documentation including device manuals, troubleshooting guides, technical specifications, and FAQ databases into a searchable vector store.</li>
+          <li><strong>Retrieval Pipeline:</strong> Implemented semantic search using BERT-based embeddings to retrieve relevant context for each customer query.</li>
+          <li><strong>Generation:</strong> Fed retrieved context to a base language model (ChatGLM) to generate responses grounded in documentation.</li>
+        </ul>
+
+        <div class="challenge-box">
+          <h4><i class="fas fa-exclamation-triangle"></i> Challenge Encountered</h4>
+          <p>
+            Despite having comprehensive documentation, the system struggled with accuracy. Issues included: imprecise retrieval leading to irrelevant context, difficulty handling multi-step troubleshooting, inability to understand device-specific terminology variations, and poor performance on complex diagnostic scenarios.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-brain"></i> Phase 2: LLM Fine-tuning Strategy</h3>
+        <p>
+          Shifted to a fine-tuning approach using real customer service data to create domain-specialized models:
+        </p>
+        <ul>
+          <li><strong>Data Collection:</strong> Obtained high-quality QA conversation logs from Lenovo's customer service department, covering common device issues, troubleshooting procedures, and support interactions.</li>
+          <li><strong>LoRA Implementation:</strong> Applied Low-Rank Adaptation to ChatGLM 7B and Llama-2 7B, updating only ~0.1% of parameters while preserving model efficiency. This enabled rapid iteration and memory-efficient training.</li>
+          <li><strong>P-Tuning v2:</strong> Implemented P-Tuning v2 for parameter-efficient fine-tuning, adding trainable prompt tokens at each layer while keeping the base model frozen.</li>
+          <li><strong>Training Process:</strong> Fine-tuned on device-specific troubleshooting scenarios, product knowledge, and support best practices using Lenovo's proprietary customer service data.</li>
+        </ul>
+
+        <div class="highlight-box">
+          <h4><i class="fas fa-lightbulb"></i> Technical Insight</h4>
+          <p>
+            Both LoRA and P-Tuning v2 proved effective for domain adaptation with limited computational resources. The fine-tuned models showed excellent performance on device-specific queries, achieving high accuracy on technical troubleshooting scenarios that the RAG system couldn't handle.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-exclamation-circle"></i> Phase 3: The Catastrophic Forgetting Problem</h3>
+        <p>
+          Fine-tuned models exhibited severe performance degradation on general tasks:
+        </p>
+
+        <div class="challenge-box">
+          <h4><i class="fas fa-bug"></i> Problem Description</h4>
+          <p>
+            After fine-tuning on customer service data, models lost their ability to handle basic conversational interactions. They couldn't respond appropriately to greetings ("Hello", "Good morning"), struggled with simple daily communication, and forced technical responses even for casual queries. This made the system feel robotic and unusable for natural customer interactions.
+          </p>
+        </div>
+
+        <ul>
+          <li><strong>Root Cause Analysis:</strong> The fine-tuning dataset consisted almost entirely of technical QA pairs without sufficient representation of general conversational patterns, causing the model to overfit on technical scenarios.</li>
+          <li><strong>Parameter Tuning Attempts:</strong> Experimented with various hyperparameters including learning rate reduction, training step adjustments, LoRA rank modifications, and dropout regularization to balance domain expertise with general capabilities.</li>
+          <li><strong>Mixed Dataset Experiments:</strong> Tried mixing general conversation data with technical QA pairs, but couldn't find an optimal ratio that maintained both conversational fluency and technical accuracy.</li>
+          <li><strong>Limitation Identified:</strong> Recognized that parameter tuning alone couldn't fully resolve the trade-off between specialization and generalization within a single 7B model given the available data and computational constraints.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-lightbulb"></i> Phase 4: Intent Recognition Solution</h3>
+        <p>
+          Developed an innovative two-stage architecture to overcome the catastrophic forgetting challenge:
+        </p>
+
+        <div class="solution-box">
+          <h4><i class="fas fa-check-circle"></i> Solution Architecture</h4>
+          <p>
+            Instead of forcing a single model to handle all scenarios, implemented an upstream intent classifier to intelligently route queries. This allowed using the base model for general conversation and the fine-tuned specialist for technical queries, achieving the best of both worlds.
+          </p>
+        </div>
+
+        <ul>
+          <li><strong>Intent Categories:</strong> Designed a classification system with three primary categories:
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+              <li>Greetings & Social Pleasantries (Hello, Thank you, Goodbye)</li>
+              <li>Daily Conversation & Casual Chat (Weather, general questions)</li>
+              <li>Professional Device Questions (Technical support, troubleshooting)</li>
+            </ul>
+          </li>
+          <li><strong>Model Architecture:</strong> Built a hybrid classifier combining Logistic Regression and Gradient Boosting:
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+              <li>Logistic Regression for interpretable, fast initial classification</li>
+              <li>Gradient Boosting for handling complex, ambiguous queries</li>
+              <li>Ensemble approach for robust performance across diverse inputs</li>
+            </ul>
+          </li>
+          <li><strong>Feature Engineering:</strong> Extracted linguistic features including keyword presence, query length, question type, technical term density, and conversational markers to enable accurate intent detection.</li>
+          <li><strong>Training Data:</strong> Curated a balanced dataset of labeled customer interactions spanning all three categories, ensuring the classifier could distinguish between general and technical queries.</li>
+          <li><strong>Performance Optimization:</strong> Achieved top-1 F1 score improvement from 78% to 92% through iterative model refinement, feature selection, and threshold tuning.</li>
+        </ul>
+
+        <div class="architecture">
+          <h4>System Architecture</h4>
+          <div class="arch-flow">
+            <div class="arch-box">User Query</div>
+            <i class="fas fa-arrow-right arch-arrow"></i>
+            <div class="arch-box">Intent Classifier<br>(LogReg + GB)</div>
+            <i class="fas fa-arrow-right arch-arrow"></i>
+            <div class="arch-box">Router</div>
+            <i class="fas fa-arrow-right arch-arrow"></i>
+            <div class="arch-box">Base Model<br>(General)<br>OR<br>Fine-tuned Model<br>(Technical)</div>
+            <i class="fas fa-arrow-right arch-arrow"></i>
+            <div class="arch-box">Response</div>
+          </div>
+        </div>
+
+        <div class="tech-tags">
+          <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fas fa-robot"></i> ChatGLM 7B</span>
+          <span class="tech-tag"><i class="fas fa-robot"></i> Llama-2 7B</span>
+          <span class="tech-tag"><i class="fas fa-layer-group"></i> LoRA</span>
+          <span class="tech-tag"><i class="fas fa-sliders-h"></i> P-Tuning v2</span>
+          <span class="tech-tag"><i class="fas fa-link"></i> LangChain</span>
+          <span class="tech-tag"><i class="fas fa-chart-line"></i> Scikit-learn</span>
+          <span class="tech-tag"><i class="fas fa-project-diagram"></i> Gradient Boosting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results & Impact -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-chart-bar"></i>
+        Results & Impact
+      </h2>
+
+      <div class="card">
+        <h3><i class="fas fa-check-double"></i> Technical Performance</h3>
+        <ul>
+          <li><strong>Intent Recognition Accuracy:</strong> Achieved 92% top-1 F1 score, up from 78% baseline, enabling reliable query routing with minimal misclassification.</li>
+          <li><strong>Coverage:</strong> System successfully handled approximately 80% of common Lenovo device issues including laptops, tablets, accessories, and peripherals.</li>
+          <li><strong>Response Quality:</strong> Fine-tuned models provided accurate, context-aware technical responses while base model maintained natural conversational flow.</li>
+          <li><strong>Latency:</strong> Intent classification added minimal overhead (<50ms), maintaining acceptable response times for customer interactions.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-presentation"></i> Knowledge Sharing & Documentation</h3>
+        <ul>
+          <li><strong>Technical Presentation:</strong> Delivered comprehensive presentation to Lenovo's technology group covering:
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+              <li>Problem definition and initial approaches</li>
+              <li>Technical challenges encountered (catastrophic forgetting)</li>
+              <li>Solution architecture and design decisions</li>
+              <li>Performance results and lessons learned</li>
+              <li>Recommendations for production deployment</li>
+            </ul>
+          </li>
+          <li><strong>Comprehensive Documentation:</strong> Created detailed technical documentation including:
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+              <li>System architecture diagrams and data flow</li>
+              <li>Model training procedures and hyperparameters</li>
+              <li>Intent classification methodology and feature engineering</li>
+              <li>Code repository with setup instructions</li>
+              <li>Scaling recommendations for larger model deployment</li>
+            </ul>
+          </li>
+          <li><strong>ML-in-Production Workshop:</strong> Led workshop sessions for engineering teams, with materials subsequently integrated into company onboarding curriculum for future ML engineers.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Learning & Skills -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-graduation-cap"></i>
+        Skills Developed & Lessons Learned
+      </h2>
+
+      <div class="card">
+        <h3><i class="fas fa-book"></i> Technical Growth</h3>
+        <ul>
+          <li><strong>LLM Fine-tuning Expertise:</strong> Gained hands-on experience with parameter-efficient fine-tuning methods (LoRA, P-Tuning v2) and understanding of their trade-offs.</li>
+          <li><strong>Problem-Solving:</strong> Learned to identify when architectural changes (intent routing) are more effective than parameter tuning for complex ML challenges.</li>
+          <li><strong>Hybrid System Design:</strong> Developed skills in combining traditional ML (LogReg, GB) with modern LLMs for optimal system performance.</li>
+          <li><strong>RAG vs Fine-tuning:</strong> Understood practical differences between retrieval-augmented generation and fine-tuning approaches, and when each is appropriate.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+        <div class="highlight-box">
+          <h4><i class="fas fa-quote-left"></i> Catastrophic Forgetting Mitigation</h4>
+          <p>
+            When fine-tuning small models (7B parameters) causes catastrophic forgetting, architectural solutions like intent-based routing can be more effective than attempting to balance capabilities through data mixing or hyperparameter tuning alone. This modular approach maintains both specialization and generalization.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <h4><i class="fas fa-quote-left"></i> Practical AI Deployment</h4>
+          <p>
+            Real-world AI systems often benefit from combining modern and classical ML approaches. The lightweight intent classifier (LogReg + GB) added minimal latency while solving a critical architectural challenge, demonstrating that simpler models still have important roles in production systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Work -->
+    <section class="section">
+      <h2 class="section-title">
+        <i class="fas fa-forward"></i>
+        Future Development Path
+      </h2>
+
+      <div class="card">
+        <p>
+          As this was a demonstration project, the documentation provided a roadmap for Lenovo's team to scale the system:
+        </p>
+        <ul>
+          <li><strong>Larger Model Deployment:</strong> Recommendations for fine-tuning larger models (13B-70B parameters) that may better balance domain expertise with general capabilities.</li>
+          <li><strong>Production Infrastructure:</strong> Guidelines for deploying the intent-based routing architecture at scale with load balancing and caching.</li>
+          <li><strong>Continuous Learning:</strong> Proposed framework for incorporating new customer service interactions to continuously improve both the intent classifier and response models.</li>
+          <li><strong>Multilingual Support:</strong> Expansion strategy for supporting multiple languages across Lenovo's global customer base.</li>
+          <li><strong>Performance Monitoring:</strong> Metrics and dashboards for tracking system accuracy, customer satisfaction, and identifying areas for improvement.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Haiyi Xing. <a href="index.html">Return to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
