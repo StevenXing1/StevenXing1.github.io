@@ -53,6 +53,16 @@ const resumeData = {
   ],
   experience: [
     {
+      title: "Real-Time Neuro-Feedback Pipeline — Alzheimer's Edge Project",
+      time: "02/2025 – 04/2026",
+      github: "https://github.com/StevenXing1/NFB_artefact_removal",
+      bullets: [
+        "Re-engineered MATLAB EEG-feedback suite in C++17 → latency 270ms → 38ms (−86%).",
+        "WebAssembly demo streaming 256Hz multi-channel EEG at 60fps under 5MB heap.",
+        "CNN-UNet for artifact detection (F1 0.92) → +18dB SNR; reconstruction RMSE reduced to 0.06."
+      ]
+    },
+    {
       title: "Yuanjing LLM Instruction-Prompting Intern — China Unicom",
       time: "07/2024 – 09/2024",
       bullets: [
@@ -126,16 +136,6 @@ const resumeData = {
       bullets: [
         "Built full-stack expense tracker with React, Node.js, Express, and PostgreSQL featuring user authentication, budget management, and real-time transaction monitoring with interactive data visualizations.",
         "Architected RESTful API with JWT authentication and designed normalized database schema with 5+ tables, implementing CRUD operations and secure data persistence."
-      ]
-    },
-    {
-      title: "Real-Time Neuro-Feedback Pipeline — Alzheimer's Edge Project",
-      time: "02/2025 – 04/2026",
-      github: "https://github.com/StevenXing1/NFB_artefact_removal",
-      bullets: [
-        "Re-engineered MATLAB EEG-feedback suite in C++17 → latency 270ms → 38ms (−86%).",
-        "WebAssembly demo streaming 256Hz multi-channel EEG at 60fps under 5MB heap.",
-        "CNN-UNet for artifact detection (F1 0.92) → +18dB SNR; reconstruction RMSE reduced to 0.06."
       ]
     },
     {
@@ -370,10 +370,15 @@ function renderExperienceSection() {
            <i class="fas fa-external-link-alt" style="font-size: 0.875rem; color: var(--primary-color);"></i>
          </a>`
       : exp.title;
-    
+
+    const githubHTML = exp.github ? `
+        <a href="${exp.github}" target="_blank" rel="noopener" title="View on GitHub" style="margin-left: 0.5rem; color: var(--primary-color); font-size: 0.9rem; text-decoration: none;">
+          <i class="fab fa-github"></i>
+        </a>` : '';
+
     return `
       <div class="timeline-item">
-        <div class="timeline-title">${titleHTML}</div>
+        <div class="timeline-title">${titleHTML}${githubHTML}</div>
         <div class="timeline-date">
           <i class="far fa-calendar"></i>
           ${exp.time}
