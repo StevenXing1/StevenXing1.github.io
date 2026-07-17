@@ -356,6 +356,7 @@ function renderExperienceSection() {
   
   // Define which experiences have detail pages
   const detailPages = {
+    "Real-Time Neuro-Feedback Pipeline — Alzheimer's Edge Project": "experience-neuro-feedback.html",
     "Yuanjing LLM Instruction-Prompting Intern — China Unicom": "experience-china-unicom.html",
     "Software Development Engineer Intern — Lenovo": "experience-lenovo.html",
     "Alibaba Global Dreamer Fellow — Alibaba": "experience-alibaba.html",
