@@ -141,6 +141,23 @@
       opacity: 0.8;
     }
 
+    .social-links a.resume-btn {
+      font-size: 1rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .social-links a.resume-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
     /* Main Content */
     .container {
       max-width: 1200px;
@@ -469,11 +486,11 @@
     <div class="nav-container">
       <a href="#" class="nav-brand">Haiyi Xing</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#opensource">Projects</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -525,6 +542,19 @@
       </div>
     </section>
 
+    <!-- Open-Source Projects Section -->
+    <section id="opensource">
+      <h2 class="section-title">Open-Source Projects</h2>
+      <div class="skills-grid" id="opensource-container">
+        <!-- Open-source projects will be injected here -->
+      </div>
+      <p style="margin-top: 1.5rem;">
+        <a href="https://github.com/StevenXing1?tab=repositories" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">
+          View all repositories on GitHub <i class="fas fa-arrow-right"></i>
+        </a>
+      </p>
+    </section>
+
     <!-- Publications Section -->
     <section id="publications">
       <h2 class="section-title">Publications</h2>
@@ -544,7 +574,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Haiyi Xing. All rights reserved.</p>
+    <p>&copy; 2026 Haiyi Xing. All rights reserved.</p>
   </footer>
 
   <script src="profile.js"></script>
